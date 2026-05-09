@@ -1,0 +1,310 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-arabic: var(--font-cairo);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+  Solaris Bildungsorganisation Color System
+  Primary:    Gold #B69761 (from logo analysis)
+  Secondary:  Navy #152433 (from logo analysis)
+  Accent:     Warm Amber tones
+*/
+:root {
+  --radius: 0.625rem;
+
+  /* Core brand */
+  --gold: #B69761;
+  --gold-light: #D4BA8A;
+  --gold-dark: #96783E;
+  --navy: #152433;
+  --navy-light: #1E3348;
+
+  /* Light mode */
+  --background: #FAFAF8;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+
+  --primary: #152433;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F0E8;
+  --secondary-foreground: #152433;
+  --muted: #F3F1ED;
+  --muted-foreground: #6B6560;
+  --accent: #B69761;
+  --accent-foreground: #152433;
+  --destructive: #DC2626;
+  --border: #E5E0D8;
+  --input: #E5E0D8;
+  --ring: #B69761;
+
+  --chart-1: #152433;
+  --chart-2: #B69761;
+  --chart-3: #1E3348;
+  --chart-4: #D4BA8A;
+  --chart-5: #96783E;
+
+  --sidebar: #F8F6F2;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #152433;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F0EBE1;
+  --sidebar-accent-foreground: #152433;
+  --sidebar-border: #E5E0D8;
+  --sidebar-ring: #B69761;
+}
+
+.dark {
+  --background: #0D1117;
+  --foreground: #E8E4DD;
+  --card: #161B22;
+  --card-foreground: #E8E4DD;
+  --popover: #161B22;
+  --popover-foreground: #E8E4DD;
+
+  --primary: #D4BA8A;
+  --primary-foreground: #0D1117;
+  --secondary: #1C2128;
+  --secondary-foreground: #E8E4DD;
+  --muted: #1C2128;
+  --muted-foreground: #8B8680;
+  --accent: #B69761;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --border: #2A2520;
+  --input: #2A2520;
+  --ring: #B69761;
+
+  --chart-1: #D4BA8A;
+  --chart-2: #B69761;
+  --chart-3: #96783E;
+  --chart-4: #1E3348;
+  --chart-5: #E8D5B0;
+
+  --sidebar: #111820;
+  --sidebar-foreground: #E8E4DD;
+  --sidebar-primary: #D4BA8A;
+  --sidebar-primary-foreground: #0D1117;
+  --sidebar-accent: #1C2128;
+  --sidebar-accent-foreground: #E8E4DD;
+  --sidebar-border: #2A2520;
+  --sidebar-ring: #B69761;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html[dir="rtl"] {
+  font-family: var(--font-cairo), sans-serif;
+}
+
+html[dir="ltr"] {
+  font-family: var(--font-inter), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* ===== Brand Gradient Utilities ===== */
+
+/* Gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4BA8A 0%, #B69761 40%, #96783E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navy gradient background */
+.bg-gradient-navy {
+  background: linear-gradient(135deg, #152433 0%, #1E3348 50%, #152433 100%);
+}
+
+/* Gold gradient background */
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #D4BA8A 0%, #B69761 50%, #96783E 100%);
+}
+
+/* ===== Section Backgrounds (Light/Dark aware) ===== */
+
+/* Warm section: cream in light, dark blue in dark */
+.section-warm {
+  background: linear-gradient(180deg, #F5F0E8 0%, #FAFAF8 100%);
+}
+.dark .section-warm {
+  background: linear-gradient(180deg, #111820 0%, #0D1117 100%);
+}
+
+/* Clean section: default background */
+.section-clean {
+  background: #FAFAF8;
+}
+.dark .section-clean {
+  background: #0D1117;
+}
+
+/* Alt section: opposite of warm */
+.section-alt {
+  background: linear-gradient(180deg, #FAFAF8 0%, #F5F0E8 100%);
+}
+.dark .section-alt {
+  background: linear-gradient(180deg, #0D1117 0%, #111820 100%);
+}
+
+/* Navy hero overlay */
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(21,36,51,0.92) 0%, rgba(30,51,72,0.78) 50%, rgba(21,36,51,0.95) 100%);
+}
+
+/* Gold divider line */
+.divider-gold {
+  background: linear-gradient(90deg, #D4BA8A, #B69761, #96783E);
+}
+
+/* Gold accent badge */
+.badge-gold {
+  background: rgba(182,151,97,0.12);
+  color: #B69761;
+}
+.dark .badge-gold {
+  background: rgba(182,151,97,0.15);
+  color: #D4BA8A;
+}
+
+/* Card hover accent */
+.card-hover-gold:hover {
+  border-color: rgba(182,151,97,0.4);
+  box-shadow: 0 8px 30px rgba(182,151,97,0.1);
+}
+.dark .card-hover-gold:hover {
+  border-color: rgba(182,151,97,0.3);
+  box-shadow: 0 8px 30px rgba(182,151,97,0.08);
+}
+
+/* Navy card gradient */
+.card-navy-gradient {
+  background: linear-gradient(135deg, #152433, #1E3348);
+}
+
+/* Gold button */
+.btn-gold {
+  background: linear-gradient(135deg, #D4BA8A 0%, #B69761 50%, #96783E 100%);
+  color: #152433;
+  border: none;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #E0C99A 0%, #C4A574 50%, #A68A4A 100%);
+}
+
+/* Navy button */
+.btn-navy {
+  background: linear-gradient(135deg, #152433, #1E3348);
+  color: #FFFFFF;
+  border: none;
+}
+.btn-navy:hover {
+  background: linear-gradient(135deg, #1E3348, #2A4A60);
+}
+
+/* Gold icon container */
+.icon-box-gold {
+  background: rgba(182,151,97,0.1);
+  color: #B69761;
+}
+
+/* Form input focus */
+.input-gold:focus {
+  border-color: #B69761;
+  box-shadow: 0 0 0 3px rgba(182,151,97,0.15);
+}
+
+/* Vision card */
+.vision-card {
+  background: linear-gradient(135deg, #152433, #1E3348);
+  border: 1px solid rgba(182,151,97,0.3);
+}
+
+/* Image overlay gradient */
+.img-overlay-navy {
+  background: linear-gradient(to top, rgba(21,36,51,0.7), transparent 60%);
+}
+
+/* Footer gradient */
+.footer-gradient {
+  background: linear-gradient(135deg, #0C1821 0%, #152433 40%, #1E3348 100%);
+}
+
+/* Gold radial glow */
+.gold-glow {
+  background: radial-gradient(ellipse at bottom left, rgba(182,151,97,0.08) 0%, transparent 60%);
+}
